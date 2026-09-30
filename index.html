@@ -3,346 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Engineering portfolio of Chadron Duzi, Mechanical Engineering student at UC Irvine focused on medical devices, wearable sensing, product design, and rapid prototyping." />
   <title>Chadron Duzi | Engineering Portfolio</title>
   <style>
-    :root {
-      --bg: #0b0f14;
-      --panel: #111821;
-      --panel-2: #151e29;
-      --text: #eef3f8;
-      --muted: #a8b3c2;
-      --line: #263241;
-      --accent: #7ec8ff;
-      --accent-2: #b8e2ff;
-      --max: 1080px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    .wrap { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
-
-    nav {
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(11, 15, 20, 0.92);
-      backdrop-filter: blur(10px);
-    }
-
-    .nav-inner {
-      min-height: 68px;
+      font-family: Arial, sans-serif;
+      background: #0b0f14;
+      color: #eef3f8;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 24px;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 24px;
     }
 
-    .brand { font-weight: 700; letter-spacing: .01em; }
-    .nav-links { display: flex; gap: 22px; color: var(--muted); font-size: .95rem; }
-    .nav-links a:hover { color: var(--text); }
-
-    header { padding: 110px 0 80px; }
-    .eyebrow {
-      color: var(--accent);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      font-size: .78rem;
-      margin-bottom: 16px;
+    .container {
+      max-width: 700px;
     }
 
     h1 {
-      margin: 0;
-      font-size: clamp(3rem, 8vw, 6.4rem);
-      line-height: .96;
-      letter-spacing: -.055em;
-      max-width: 900px;
+      font-size: 3.5rem;
+      margin-bottom: 12px;
     }
 
-    .lede {
-      margin: 28px 0 0;
-      max-width: 740px;
-      color: var(--muted);
-      font-size: clamp(1.05rem, 2vw, 1.3rem);
+    .subtitle {
+      font-size: 1.15rem;
+      color: #a8b3c2;
+      margin-bottom: 24px;
     }
 
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 34px;
+    .intro {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #c9d3df;
+      margin-bottom: 32px;
     }
 
     .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 18px;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      font-weight: 650;
-      transition: .18s ease;
-    }
-
-    .button.primary {
-      background: var(--text);
+      display: inline-block;
+      padding: 14px 24px;
+      background: #eef3f8;
       color: #0b0f14;
-      border-color: var(--text);
-    }
-
-    .button:hover { transform: translateY(-1px); border-color: var(--accent); }
-    .button.primary:hover { background: var(--accent-2); }
-
-    section { padding: 72px 0; border-top: 1px solid var(--line); }
-    .section-title {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      color: var(--accent);
-    }
-
-    .section-copy { max-width: 760px; }
-    .section-copy > p:first-child { margin-top: 0; }
-
-    .project-grid {
-      margin-top: 36px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      background: linear-gradient(180deg, var(--panel-2), var(--panel));
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 28px;
-    }
-
-    .card .num {
-      color: var(--accent);
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      margin-bottom: 16px;
-    }
-
-    .card h3 {
-      margin: 0 0 12px;
-      font-size: 1.35rem;
-      letter-spacing: -.02em;
-    }
-
-    .card p { color: var(--muted); margin: 0; }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 20px;
-    }
-
-    .tag {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 5px 10px;
-      color: var(--accent-2);
-      font-size: .8rem;
-    }
-
-    .metric-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 34px;
-    }
-
-    .metric {
-      border-top: 1px solid var(--line);
-      padding-top: 16px;
-    }
-
-    .metric strong {
-      display: block;
-      font-size: 1.45rem;
-      letter-spacing: -.03em;
-    }
-
-    .metric span { color: var(--muted); font-size: .88rem; }
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .skill {
-      padding: 8px 12px;
+      text-decoration: none;
       border-radius: 8px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      color: var(--muted);
+      font-weight: bold;
+      margin-bottom: 28px;
     }
 
-    footer {
-      padding: 42px 0 60px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
+    .links a {
+      color: #7ec8ff;
+      text-decoration: none;
+      margin: 0 10px;
     }
 
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 760px) {
-      header { padding: 80px 0 60px; }
-      .nav-links { display: none; }
-      .section-title { grid-template-columns: 1fr; }
-      .project-grid, .metric-row { grid-template-columns: 1fr; }
-      section { padding: 56px 0; }
+    .links a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="wrap nav-inner">
-      <a class="brand" href="#">Chadron Duzi</a>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#skills">Skills</a>
-        <a href="Chadron_Duzi_Engineering_Portfolio.pdf">Portfolio PDF</a>
-      </div>
+  <div class="container">
+    <h1>Chadron Duzi</h1>
+    <div class="subtitle">Mechanical Engineering | UC Irvine</div>
+
+    <div class="intro">
+      I am a Mechanical Engineering student focused on medical devices, wearable sensing,
+      product design, and rapid prototyping. My work includes hands-on experience in CAD,
+      3D printing, experimental testing, and engineering research.
     </div>
-  </nav>
 
-  <header>
-    <div class="wrap">
-      <div class="eyebrow">Mechanical Engineering · UC Irvine</div>
-      <h1>Engineering ideas into testable systems.</h1>
-      <p class="lede">
-        I’m Chadron Duzi, a third-year Mechanical Engineering student focused on medical devices,
-        wearable sensing, product design, and rapid prototyping.
-      </p>
-      <div class="actions">
-        <a class="button primary" href="Chadron_Duzi_Engineering_Portfolio.pdf" target="_blank" rel="noopener">View Engineering Portfolio</a>
-        <a class="button" href="https://www.linkedin.com/in/chadronduzi" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="button" href="mailto:cduzi@uci.edu">Email</a>
-      </div>
+    <a class="button" href="Chadron_Duzi_Engineering_Portfolio.pdf" target="_blank">
+      View Engineering Portfolio
+    </a>
+
+    <div class="links">
+      <a href="https://www.linkedin.com/in/chadronduzi" target="_blank">LinkedIn</a>
+      <a href="mailto:cduzi@uci.edu">cduzi@uci.edu</a>
     </div>
-  </header>
-
-  <main>
-    <section id="about">
-      <div class="wrap section-title">
-        <h2>About</h2>
-        <div class="section-copy">
-          <p>
-            My work spans wearable sensing, CAD, 3D printing, electromechanical prototyping, and iterative validation.
-            I’m especially interested in medical and rehabilitation technology where mechanical design and sensing
-            must work together reliably on the body.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="work">
-      <div class="wrap">
-        <div class="section-title">
-          <h2>Selected Work</h2>
-          <div class="section-copy">
-            <p>Two projects that reflect my interests in wearable devices, mechanical design, sensing, and experimental validation.</p>
-          </div>
-        </div>
-
-        <div class="project-grid">
-          <article class="card">
-            <div class="num">01 · RESEARCH</div>
-            <h3>Dorsal Force-Sensing Hand Exoskeleton</h3>
-            <p>
-              Developed and iterated a wearable sensing system that estimates PIP-joint flexion from dorsal knuckle loading
-              while preserving the palmar surface for natural interaction.
-            </p>
-            <div class="metric-row">
-              <div class="metric"><strong>10+</strong><span>prototype iterations</span></div>
-              <div class="metric"><strong>0.9726</strong><span>Trial 2 flexion R²</span></div>
-              <div class="metric"><strong>5.89°</strong><span>prediction MAE</span></div>
-            </div>
-            <div class="tags">
-              <span class="tag">SolidWorks</span>
-              <span class="tag">3D Printing</span>
-              <span class="tag">Electronics</span>
-              <span class="tag">ImageJ</span>
-              <span class="tag">Excel</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="num">02 · MECHANICAL DESIGN</div>
-            <h3>Hand Tremor Mitigation Device</h3>
-            <p>
-              Designed a compact wrist-worn SolidWorks concept centered on tuned mass dampers, a collapsible ball-lock
-              mechanism, and a detachable bayonet-mounted central assembly.
-            </p>
-            <div class="tags">
-              <span class="tag">SolidWorks</span>
-              <span class="tag">Assembly Design</span>
-            </div>
-          </article>
-        </div>
-
-        <div class="actions">
-          <a class="button" href="Chadron_Duzi_Engineering_Portfolio.pdf" target="_blank" rel="noopener">Open Full Portfolio PDF</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="wrap section-title">
-        <h2>Focus Areas</h2>
-        <div class="section-copy">
-          <div class="skills">
-            <span class="skill">Medical Devices</span>
-            <span class="skill">Wearable Technology</span>
-            <span class="skill">Product Design</span>
-            <span class="skill">Rapid Prototyping</span>
-            <span class="skill">Sensor Integration</span>
-            <span class="skill">Additive Manufacturing</span>
-            <span class="skill">Experimental Testing</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap footer-inner">
-      <span>Chadron Duzi · Mechanical Engineering, UC Irvine</span>
-      <span><a href="mailto:cduzi@uci.edu">cduzi@uci.edu</a> · <a href="https://www.linkedin.com/in/chadronduzi" target="_blank" rel="noopener">LinkedIn</a></span>
-    </div>
-  </footer>
+  </div>
 </body>
 </html>
